@@ -2,7 +2,8 @@ package 'libcurl4-openssl-dev'
 
 bash "install rvm" do
   code <<-EOH
-	bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
+    bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
+    source /etc/profile.d/rvm.sh
   EOH
   creates "/usr/local/rvm"
 end
