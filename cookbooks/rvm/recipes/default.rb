@@ -10,14 +10,15 @@ end
 
 bash "install rvm ruby 1.9.2" do
   code <<-EOH
+    echo "rvm use 1.9.2" >> /etc/profile.d/rvm.sh
+    source /etc/profile.d/rvm.sh
+
     echo "install ssl"
     rvm package install openssl
 
     echo "install ruby 1.9.2"
     rvm install 1.9.2 --with-openssl-dir=/usr/local/rvm/usr
 
-    echo "rvm use 1.9.2" >> /etc/profile.d/rvm.sh
-    source /etc/profile.d/rvm.sh
 
     echo "use 1.9.2"
     rvm use 1.9.2 --default
