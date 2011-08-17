@@ -1,8 +1,9 @@
-user "deploy" do
-  comment "deploy user"
-  system true
-  shell "/bin/bash"
-  home "/home/deploy"
-  password "$1$9oRNaWmK$psmojmwlT10bmQjdXYvkH1"
-  supports :manage_home => true
+bash "disable ssh root login" do
+  code <<-EOH
+    sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
+  EOH
+end
+
+service "ssh" do
+  action :restart
 end
