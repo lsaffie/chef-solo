@@ -1,4 +1,4 @@
-gem_pacakge "ruby-shadow" do
+gem_package "ruby-shadow" do
   action :install
 end
 
