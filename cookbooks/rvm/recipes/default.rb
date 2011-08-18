@@ -1,6 +1,7 @@
 package 'curl'
 package 'libcurl4-openssl-dev'
 
+
 bash "install rvm" do
   code <<-EOH
     bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
@@ -25,6 +26,14 @@ bash "install rvm ruby 1.9.2" do
     rvm use 1.9.2 --default
   EOH
   creates "/usr/local/rvm/gems/ruby-1.9.2-p290/"
+end
+
+bash "install some gems" do
+  code <<-EOH
+    source /etc/profile.d/rvm.sh
+    gem install chef --no-ri --no-rdoc
+    gem install ohai --no-ri --no-rdoc
+  EOH
 end
 
 bash "install bundler" do
