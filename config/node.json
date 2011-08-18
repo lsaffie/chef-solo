@@ -1,6 +1,5 @@
 {
-  "run_list": [ "recipe[example]",
-                "recipe[rvm]",
+  "run_list": [ "recipe[rvm]",
                 "recipe[ssh]",
                 "recipe[users]"
               ]
