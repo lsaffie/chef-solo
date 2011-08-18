@@ -1,3 +1,7 @@
+gem_pacakge "ruby-shadow" do
+  action :install
+end
+
 user "deploy" do
   comment "deploy user"
   system true
