@@ -43,3 +43,19 @@ bash "install passenger" do
   EOH
   creates "/usr/local/rvm/gems/ruby-1.9.2-p290/bin/passenger-install-nginx-module"
 end
+
+cookbook_file "/etc/init.d/nginx" do
+  source "nginx"
+  mode "755"
+  creates "/etc/init.d/nginx"
+end
+
+bash "setup nginx rc script" do
+  code <<-EOH
+    /usr/sbin/update-rc.d -f nginx defaults
+  EOH
+end
+
+service "nginx" do
+  action :start
+end
