@@ -56,7 +56,6 @@ end
 cookbook_file "/etc/init.d/nginx" do
   source "nginx"
   mode "755"
-  creates "/etc/init.d/nginx"
 end
 
 bash "setup nginx rc script" do
