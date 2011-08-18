@@ -1,3 +1,4 @@
+package 'curl'
 package 'libcurl4-openssl-dev'
 
 bash "install rvm" do
