@@ -1,4 +1,6 @@
 package "mysql-server"
+package "libmysqld-dev"
+package "libsqlite3-dev"
 
 bash "set mysql password" do
   code <<-EOH

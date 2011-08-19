@@ -40,7 +40,7 @@ bash "install passenger" do
   code <<-EOH
     source /etc/profile.d/rvm.sh
     gem install passenger --no-rdoc --no-ri
-    /usr/local/rvm/gems/ruby-1.9.2-p290/bin/passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx
+    /usr/local/rvm/gems/ruby-1.9.2-p290/bin/passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx --extra-configure-flags=--with-http_ssl_module
   EOH
   creates "/usr/local/rvm/gems/ruby-1.9.2-p290/bin/passenger-install-nginx-module"
 end
@@ -56,6 +56,13 @@ bash "setup nginx rc script" do
   code <<-EOH
     /usr/sbin/update-rc.d -f nginx defaults
   EOH
+end
+
+cookbook_file "/opt/nginx/conf/nginx.conf" do
+  source "nginx.conf"
+  mode "644"
+  owner "root"
+  group "root"
 end
 
 service "nginx" do
