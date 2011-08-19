@@ -1,6 +1,4 @@
-package "ruby-shadow" do
-   provider Chef::Provider::Package::Rubygems
-end
+package "ruby-shadow"
 
 user "deploy" do
   comment "deploy user"
