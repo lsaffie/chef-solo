@@ -1,4 +1,4 @@
-package "ruby-shadow"
+gem_package "ruby-shadow"
 
 user "deploy" do
   comment "deploy user"
