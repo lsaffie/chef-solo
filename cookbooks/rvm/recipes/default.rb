@@ -28,14 +28,6 @@ bash "install rvm ruby 1.9.2" do
   creates "/usr/local/rvm/gems/ruby-1.9.2-p290/"
 end
 
-#bash "install some gems" do
-#  code <<-EOH
-#    source /etc/profile.d/rvm.sh
-#    gem install chef --no-ri --no-rdoc
-#    gem install ohai --no-ri --no-rdoc
-#  EOH
-#end
-
 bash "install bundler" do
   code <<-EOH
     source /etc/profile.d/rvm.sh

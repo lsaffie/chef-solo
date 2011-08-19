@@ -1,5 +1,5 @@
-gem_package "ruby-shadow" do
-  action :install
+package "ruby-shadow" do
+   provider Chef::Provider::Package::Rubygems
 end
 
 user "deploy" do
